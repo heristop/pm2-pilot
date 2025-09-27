@@ -1,0 +1,23 @@
+{
+  "plugins": ["import"],
+  "ignorePatterns": [
+    "dist/",
+    "node_modules/",
+    "coverage/",
+    ".husky/",
+    "tests/**",
+    "**/*.d.ts",
+    "**/*.config.*"
+  ],
+  "rules": {
+    "@typescript-eslint/unbound-method": "off",
+    "complexity": ["warn", 10],
+    "max-depth": ["warn", 5],
+    "max-nested-callbacks": ["warn", 4],
+    "max-params": ["warn", 15],
+    "max-statements": ["warn", 15],
+    "no-unused-vars": "error",
+    "no-console": "off",
+    "import/extensions": ["error", "never"]
+  }
+}

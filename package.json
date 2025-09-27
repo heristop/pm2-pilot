@@ -1,0 +1,107 @@
+{
+  "name": "pm2-x",
+  "version": "0.1.0",
+  "description": "Interactive CLI for PM2 process management with AI assistance",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "pm2x": "./dist/bin/pm2x.js"
+  },
+  "scripts": {
+    "build": "pnpm exec tsdown",
+    "start": "pnpm run build && node dist/bin/pm2x.js",
+    "dev": "tsx src/bin/pm2x.ts",
+    "clean": "rm -rf dist",
+    "test:cucumber": "node --import tsx ./node_modules/@cucumber/cucumber/bin/cucumber-js  --name conversation",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "lint": "pnpm exec oxlint .",
+    "lint:fix": "pnpm exec oxlint . --fix",
+    "typecheck": "pnpm exec oxlint --type-aware --tsconfig tsconfig.json",
+    "ci:quality": "pnpm run lint && pnpm run typecheck && pnpm run test:coverage && pnpm run test:cucumber",
+    "demo:showcase": "tsx demo/scripts/live-demo.ts",
+    "demo:record": "tsx demo/scripts/record-demo.ts",
+    "demo:interactive": "tsx demo/scripts/guided-demo.ts",
+    "demo:test": "pnpm exec cucumber-js features/demo.feature --tags '@main-flow'",
+    "demo:clean": "rm -rf demo/output/*",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "pm2",
+    "cli",
+    "monitoring",
+    "process-manager",
+    "interactive",
+    "ai"
+  ],
+  "author": "heristop",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "blessed": "^0.1.81",
+    "chalk": "^5.6.2",
+    "commander": "^14.0.1",
+    "dotenv": "^17.2.2",
+    "inquirer": "^12.9.6",
+    "openai": "^5.23.1",
+    "pm2": "^6.0.13",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@cucumber/cucumber": "^12.2.0",
+    "@cucumber/pretty-formatter": "^2.3.0",
+    "@types/blessed": "^0.1.25",
+    "@types/chai": "^5.2.2",
+    "@types/inquirer": "^9.0.9",
+    "@types/node": "^24.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "c8": "^10.1.3",
+    "chai": "^6.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.2",
+    "oxlint": "^1.18.0",
+    "oxlint-tsgolint": "^0.2.0",
+    "tsdown": "^0.15.5",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.2",
+    "typescript-transform-paths": "^3.5.5",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "pnpm@10.17.1",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "pnpm exec oxlint --fix"
+    ],
+    "*.{tests.ts}": [
+      "pnpm run test"
+    ],
+    "*.feature": [
+      "pnpm run test:cucumber"
+    ]
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./bin": {
+      "default": "./dist/bin/pm2x.js"
+    },
+    "./package.json": "./package.json"
+  }
+}
