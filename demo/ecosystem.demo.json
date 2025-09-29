@@ -1,0 +1,51 @@
+{
+  "apps": [
+    {
+      "name": "api-server",
+      "script": "./test-apps/api-server.js",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "max_memory_restart": "500M",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 3001
+      },
+      "error_file": "./logs/api-server-error.log",
+      "out_file": "./logs/api-server-out.log",
+      "log_file": "./logs/api-server.log"
+    },
+    {
+      "name": "worker-queue",
+      "script": "./test-apps/worker-queue.js",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "max_memory_restart": "300M",
+      "env": {
+        "NODE_ENV": "production",
+        "REDIS_URL": "redis://localhost:6379"
+      },
+      "error_file": "./logs/worker-queue-error.log",
+      "out_file": "./logs/worker-queue-out.log",
+      "log_file": "./logs/worker-queue.log"
+    },
+    {
+      "name": "database-sync",
+      "script": "./test-apps/database-sync.js",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "max_restarts": 5,
+      "min_uptime": "10s",
+      "env": {
+        "NODE_ENV": "production",
+        "DB_HOST": "localhost",
+        "DB_PORT": 5432
+      },
+      "error_file": "./logs/database-sync-error.log",
+      "out_file": "./logs/database-sync-out.log",
+      "log_file": "./logs/database-sync.log"
+    }
+  ]
+}

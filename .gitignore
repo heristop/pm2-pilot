@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs
+
+# Environment
+.env
+.env.local
+
+# Reports
+reports/
+cucumber-report.html
+output
+
+# Coverage
+coverage/
+
+# Misc
+.DS_Store
+.idea/
+.vscode/
