@@ -4,7 +4,7 @@ Modern interactive CLI for PM2 process management with AI assistance, built with
 
 ## ✨ Demo
 
-![PM2-X AI-Powered Demo](docs/showcase-demo.gif)
+![PM2-X AI-Powered Demo](https://github.com/heristop/pm2-x/blob/main/docs/showcase-demo.gif?raw=true)
 
 > **🎬 See PM2-X in Action:** Watch how PM2-X intelligently analyzes process errors, provides AI-powered diagnosis, and suggests actionable solutions—all through natural language interaction!
 
