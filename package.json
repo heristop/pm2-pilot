@@ -83,7 +83,7 @@
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
       "pnpm exec oxlint --fix"
     ],
-    "*.{tests.ts}": [
+    "*.tests.ts": [
       "pnpm run test"
     ],
     "*.feature": [
