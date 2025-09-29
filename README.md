@@ -4,19 +4,6 @@ Modern interactive CLI for PM2 process management with AI assistance, built with
 
 ## ✨ Demo
 
-Experience PM2-X with interactive demo scripts:
-
-```bash
-# Automated showcase demo
-pnpm run demo:showcase
-
-# Interactive guided demo
-pnpm run demo:interactive
-
-# End-to-end demo testing
-pnpm run demo:test
-```
-
 ![PM2-X AI-Powered Demo](docs/showcase-demo.gif)
 
 > **🎬 See PM2-X in Action:** Watch how PM2-X intelligently analyzes process errors, provides AI-powered diagnosis, and suggests actionable solutions—all through natural language interaction!
@@ -74,49 +61,6 @@ After installation, start the interactive CLI:
 
 ```bash
 pm2x
-```
-
-### Development Installation
-
-For development or local testing:
-
-```bash
-# Clone and install dependencies
-pnpm install
-
-# Build the project
-pnpm run build
-
-# Run the CLI locally
-pnpm start
-
-# Or run in development mode
-pnpm dev
-```
-
-## Development
-
-```bash
-# Run in development mode with auto-reload
-pnpm dev
-
-# Clean build artifacts
-pnpm run clean
-
-# Run tests
-pnpm test
-
-# Run tests with coverage
-pnpm run test:coverage
-
-# Lint code
-pnpm run lint
-
-# Type checking
-pnpm run typecheck
-
-# Run quality checks (CI pipeline)
-pnpm run ci:quality
 ```
 
 ## Available Commands
@@ -368,41 +312,6 @@ pm2x> how do I monitor memory usage over time?
 - **Intelligent Automation**: AI executes common tasks with confirmation
 - **Conversational Workflow**: Build solutions through natural dialogue
 
-## Architecture
-
-### Intelligent Command Processing Workflow
-
-PM2-X uses an advanced AI-driven workflow to process natural language commands in any language:
-
-```mermaid
-flowchart TD
-    A[User Input] --> B{Input Type?}
-    B -->|/command| C[Command Parser]
-    B -->|Natural Language| D[AI Router]
-
-    C --> E[Execute Command]
-    D --> F[Analyze Intent]
-    F --> G{Needs Confirmation?}
-
-    G -->|Safe/Auto| E
-    G -->|Dangerous| H[Ask Permission]
-    H --> I{Approved?}
-    I -->|Yes| E
-    I -->|No| J[Cancel]
-
-    E --> K[PM2 Operations]
-    K --> L[Display Results]
-    L --> A
-```
-
-### Key Features of the AI Workflow
-
-1. **Language Agnostic**: Understands commands in any language supported by the LLM
-2. **Context Aware**: Remembers previous commands and maintains conversation context
-3. **Safety First**: Dangerous operations always require confirmation, even in AUTO mode
-4. **Smart Defaults**: Uses conversation history to fill missing parameters
-5. **Flexible Interaction**: Supports numbered selections, natural language, and traditional commands
-
 ## 🚀 Key Features That Surpass PM2
 
 ### ✨ Exclusive Features Not in PM2
@@ -436,12 +345,18 @@ flowchart TD
 
 ## Contributing
 
-1. Ensure you have Node.js >= 22.0.0 and pnpm installed
-2. Install dependencies: `pnpm install`
-3. Make your changes in the `src/` directory
-4. Build and test: `pnpm build && pnpm start`
-5. Submit a pull request
+Contributions are welcome! Please see the [Contributing Guide](CONTRIBUTING.md) for details on:
+
+- Development setup and workflow
+- Code style and testing requirements
+- Pull request process
+- Project architecture and structure
+
+For technical details, see:
+
+- [Architecture Overview](docs/architecture.md)
+- [AI Workflow Design](docs/ai-workflow.md)
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) forile for details.
+MIT License - see [LICENSE](LICENSE) file for details.
