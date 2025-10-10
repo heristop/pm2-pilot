@@ -26,7 +26,7 @@ setTimeout(() => {
 // Simulate connection timeouts
 setTimeout(() => {
   console.error('[ERROR] ETIMEDOUT: Connection timeout after 30000ms');
-  console.error('[ERROR] Failed to establish database connection');
+  console.error('[ERROR] Failed to establish database connection on port 35432');
   console.error('[ERROR] Sync operation aborted');
 }, 6000);
 
@@ -39,7 +39,7 @@ const attemptSync = () => {
   setTimeout(() => {
     console.error(`[ERROR] Sync attempt #${syncAttempt} failed`);
     console.error('Error: Connection lost during transaction');
-    console.error('SQLSTATE[HY000]: General error: 2006 MySQL server has gone away');
+    console.error('SQLSTATE[HY000]: General error: 2006 Database server has gone away');
   }, 2000);
 };
 

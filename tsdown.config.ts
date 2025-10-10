@@ -28,7 +28,7 @@ export default defineConfig([
   },
   {
     entry: {
-      'bin/pm2x': 'src/bin/pm2x.ts'
+      'bin/pm2plus': 'src/bin/pm2plus.ts'
     },
     format: ['esm'],
     outDir: 'dist',

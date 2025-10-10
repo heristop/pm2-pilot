@@ -1,3 +1,4 @@
+import { VERSION } from '../../version';
 import { injectable, inject } from 'tsyringe';
 import chalk from 'chalk';
 import { AIProviderFactory } from '../../services/AIProviderFactory';
@@ -51,12 +52,12 @@ export class ShellUIManager implements IShellUIManager {
   showBanner(isWide: boolean): void {
     if (isWide) {
       console.log(chalk.cyan.bold('\n╔══════════════════════════════════════════════════════════════════════════════╗'));
-      console.log(chalk.cyan.bold('║') + chalk.white.bold('                             🚀 PM2-X v0.1.0                                  ') + chalk.cyan.bold('║'));
+      console.log(chalk.cyan.bold('║') + chalk.white.bold(`                             🚀 PM2+ v${VERSION}                                   `) + chalk.cyan.bold('║'));
       console.log(chalk.cyan.bold('║') + chalk.blue.bold('                    Interactive Process Manager with AI                       ') + chalk.cyan.bold('║'));
       console.log(chalk.cyan.bold('╚══════════════════════════════════════════════════════════════════════════════╝'));
     } else {
       console.log(chalk.cyan.bold('\n┌─────────────────────────────────────────┐'));
-      console.log(chalk.cyan.bold('│') + chalk.white.bold('           🚀 PM2-X v0.1.0          ') + chalk.cyan.bold('│'));
+      console.log(chalk.cyan.bold('│') + chalk.white.bold(`           🚀 PM2+ v${VERSION}          `) + chalk.cyan.bold('│'));
       console.log(chalk.cyan.bold('│') + chalk.blue.bold('     Interactive Process Manager    ') + chalk.cyan.bold('│'));
       console.log(chalk.cyan.bold('└─────────────────────────────────────────┘'));
     }
@@ -283,7 +284,7 @@ export class ShellUIManager implements IShellUIManager {
   }
 
   getPrompt(): string {
-    return chalk.cyan('pm2x> ');
+    return chalk.cyan('PM2+ ');
   }
 
   renderOutput(output: unknown, processName?: string): void {

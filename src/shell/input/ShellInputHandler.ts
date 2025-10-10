@@ -191,6 +191,6 @@ export class ShellInputHandler implements IShellInputHandler {
   }
 
   private getPrompt(): string {
-    return chalk.cyan('pm2x> ');
+    return chalk.cyan('PM2+ ');
   }
 }

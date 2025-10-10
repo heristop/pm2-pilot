@@ -40,7 +40,7 @@ class DemoRecorder {
       width: this.width,
       height: this.height,
       timestamp: Math.floor(this.startTime / 1000),
-      title: 'PM2-X Orchestrated Demo',
+      title: 'PM2+ Orchestrated Demo',
       env: {
         TERM: 'xterm-256color',
         SHELL: '/bin/bash'
@@ -126,7 +126,7 @@ After(async function() {
   console.log('🧹 Demo scenario cleanup completed');
 });
 
-Given('I have a clean PM2-X demo environment', async function() {
+Given('I have a clean PM2+ demo environment', async function() {
   console.log('⚙️ Setting up clean demo environment...');
   
   // Stop any existing PM2 processes
@@ -185,12 +185,12 @@ Given('the {string} process has realistic error logs:', function(processName: st
   console.log(`📋 Configured realistic error logs for ${processName}`);
 });
 
-When('I run the PM2-X command {string}', async function(command: string) {
+When('I run the PM2+ command {string}', async function(command: string) {
   console.log(`⌨️ Executing command: ${command}`);
   
   if (!world.pm2xProcess) {
-    // Start PM2-X process if not already running
-    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2x.js');
+    // Start PM2+ process if not already running
+    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2plus.js');
     
     world.pm2xProcess = spawn('node', [pm2xPath], {
       cwd: process.cwd(),
@@ -220,15 +220,15 @@ When('I run the PM2-X command {string}', async function(command: string) {
     
     // Set up exit handler immediately
     world.pm2xProcess.on('exit', (code) => {
-      console.log(`📤 PM2-X process exited with code: ${code}`);
+      console.log(`📤 PM2+ process exited with code: ${code}`);
       world.pm2xProcess = undefined;
     });
     
-    // Wait for PM2-X to initialize
+    // Wait for PM2+ to initialize
     await new Promise(resolve => setTimeout(resolve, 2000));
   }
   
-  // Send command to PM2-X
+  // Send command to PM2+
   world.pm2xProcess?.stdin?.write(command + '\r');
   world.lastCommandTime = Date.now();
   
@@ -299,7 +299,7 @@ Then('suggest using intelligent log analysis commands', function() {
                        world.currentOutput.includes('smart') ||
                        world.currentOutput.includes('analyze');
   
-  expect(hasLogCommand).to.be.true;
+  expect(hasLogCommand).to.equal(true);
   console.log('✅ AI suggested intelligent log analysis commands');
 });
 
@@ -394,7 +394,7 @@ Then('prioritize recommendations by severity', function() {
                      world.currentOutput.includes('Recommended Actions') ||
                      world.currentOutput.includes('Quick Fix');
   
-  expect(hasSeverity).to.be.true;
+  expect(hasSeverity).to.equal(true);
   console.log('✅ Recommendations prioritized by severity');
 });
 
@@ -404,7 +404,7 @@ Then('suggest immediate actions', function() {
                     world.currentOutput.includes('fix') ||
                     world.currentOutput.includes('check');
   
-  expect(hasActions).to.be.true;
+  expect(hasActions).to.equal(true);
   console.log('✅ Immediate actions suggested');
 });
 
@@ -439,9 +439,9 @@ Then('display a professional closing message', function() {
   const hasClosingMessage = world.currentOutput.includes('goodbye') ||
                            world.currentOutput.includes('thank you') ||
                            world.currentOutput.includes('exit') ||
-                           world.currentOutput.includes('PM2-X');
+                           world.currentOutput.includes('PM2+');
   
-  expect(hasClosingMessage).to.be.true;
+  expect(hasClosingMessage).to.equal(true);
   console.log('✅ Professional closing message displayed');
 });
 
@@ -460,7 +460,7 @@ Then('the UI should remain responsive throughout', function() {
   const hasOutput = world.currentOutput.length > 0;
   const hasProcess = world.pm2xProcess !== undefined;
 
-  expect(hasOutput || hasProcess, 'UI should show output or have active processes').to.be.true;
+  expect(hasOutput || hasProcess, 'UI should show output or have active processes').to.equal(true);
   console.log('✅ UI remained responsive');
 });
 
@@ -475,7 +475,7 @@ Given('the demo recorder is measuring response times', function() {
   console.log('⏱️ Response time measurement started');
 });
 
-When('I run any PM2-X command during the demo', async function() {
+When('I run any PM2+ command during the demo', async function() {
   world.lastCommandTime = Date.now();
 
   // Execute a sample command for testing
@@ -483,8 +483,8 @@ When('I run any PM2-X command during the demo', async function() {
   console.log(`⌨️ Executing demo command: ${command}`);
 
   if (!world.pm2xProcess) {
-    // Start PM2-X process if not already running
-    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2x.js');
+    // Start PM2+ process if not already running
+    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2plus.js');
 
     world.pm2xProcess = spawn('node', [pm2xPath], {
       cwd: process.cwd(),
@@ -497,7 +497,7 @@ When('I run any PM2-X command during the demo', async function() {
       }
     });
 
-    // Wait for PM2-X to start
+    // Wait for PM2+ to start
     await new Promise(resolve => setTimeout(resolve, 2000));
   }
 
@@ -539,8 +539,8 @@ When('I run {string}', async function(command: string) {
   console.log(`⌨️ Executing command: ${command}`);
 
   if (!world.pm2xProcess) {
-    // Start PM2-X process if not already running
-    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2x.js');
+    // Start PM2+ process if not already running
+    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2plus.js');
 
     world.pm2xProcess = spawn('node', [pm2xPath], {
       cwd: process.cwd(),
@@ -553,7 +553,7 @@ When('I run {string}', async function(command: string) {
       }
     });
 
-    // Wait for PM2-X to start
+    // Wait for PM2+ to start
     await new Promise(resolve => setTimeout(resolve, 2000));
   }
 
@@ -574,12 +574,12 @@ Then('the AI analysis should categorize errors as:', function(dataTable) {
 
     // Check category name is mentioned
     const categoryMentioned = world.currentOutput.toLowerCase().includes(categoryName.toLowerCase());
-    expect(categoryMentioned, `Category "${categoryName}" should be mentioned in analysis`).to.be.true;
+    expect(categoryMentioned, `Category "${categoryName}" should be mentioned in analysis`).to.equal(true);
 
     // Validate count format (e.g., "2 error(s)", "1 warning(s)")
     const countPattern = new RegExp(`${categoryName}[:\\s]*\\d+\\s+(?:error|warning)`, 'i');
     const hasValidCount = countPattern.test(world.currentOutput);
-    expect(hasValidCount, `Category "${categoryName}" should include proper count format like "${expectedCount}"`).to.be.true;
+    expect(hasValidCount, `Category "${categoryName}" should include proper count format like "${expectedCount}"`).to.equal(true);
 
     console.log(`✅ ${categoryName}: Valid categorization with count format`);
   });
@@ -590,7 +590,7 @@ Then('the AI analysis should categorize errors as:', function(dataTable) {
                       world.currentOutput.includes('Category:') ||
                       world.currentOutput.includes('Analysis:');
 
-  expect(hasStructure, 'AI analysis should have structured format with clear categorization').to.be.true;
+  expect(hasStructure, 'AI analysis should have structured format with clear categorization').to.equal(true);
   console.log('✅ AI analysis contains proper structure and categorization');
 });
 
@@ -603,16 +603,16 @@ Then('provide specific recommendations for each category:', function(dataTable) 
 
     // Check category is mentioned in recommendations
     const categoryMentioned = world.currentOutput.toLowerCase().includes(category.toLowerCase());
-    expect(categoryMentioned, `Category "${category}" should be mentioned in recommendations`).to.be.true;
+    expect(categoryMentioned, `Category "${category}" should be mentioned in recommendations`).to.equal(true);
 
     // Validate recommendation contains actionable content
     const hasActionableWords = ['check', 'verify', 'monitor', 'update', 'fix', 'review', 'configure', 'restart', 'investigate']
       .some(action => world.currentOutput.toLowerCase().includes(action));
-    expect(hasActionableWords, `Recommendations should contain actionable words for "${category}"`).to.be.true;
+    expect(hasActionableWords, `Recommendations should contain actionable words for "${category}"`).to.equal(true);
 
     // Check for specific technical details (like port numbers, connection strings, etc.)
     const hasTechnicalDetails = /\b(?:port\s+\d+|database|connection|config|\.js|\.log|process|service|server)\b/i.test(world.currentOutput);
-    expect(hasTechnicalDetails, `Recommendations should include technical details for "${category}"`).to.be.true;
+    expect(hasTechnicalDetails, `Recommendations should include technical details for "${category}"`).to.equal(true);
 
     console.log(`✅ ${category}: Valid recommendations with actionable content`);
   });
@@ -623,7 +623,7 @@ Then('provide specific recommendations for each category:', function(dataTable) 
                            world.currentOutput.toLowerCase().includes('application') ||
                            world.currentOutput.toLowerCase().includes('service');
 
-  expect(hasProcessContext, 'Recommendations should be contextual to process management').to.be.true;
+  expect(hasProcessContext, 'Recommendations should be contextual to process management').to.equal(true);
   console.log('✅ AI recommendations are specific and actionable for process management');
 });
 
@@ -636,7 +636,7 @@ Then('the AI should understand this means show process status', function(this: a
                               responseText.includes('online') ||
                               responseText.includes('processes');
 
-  expect(hasStatusIndicators).to.be.true;
+  expect(hasStatusIndicators).to.equal(true);
   console.log('✅ AI understood status request');
 });
 
@@ -648,7 +648,7 @@ Then('respond with process information in natural language', function(this: any)
                              !responseText.startsWith('COMMAND NOT FOUND') &&
                              (responseText.includes('process') || responseText.includes('api-server') || responseText.includes('worker-queue'));
 
-  expect(hasNaturalLanguage).to.be.true;
+  expect(hasNaturalLanguage).to.equal(true);
   console.log('✅ Natural language response provided');
 });
 
@@ -658,7 +658,7 @@ Then('the AI should understand {string} refers to {string} in demo', function(th
   const hasContextualReference = responseText.toLowerCase().includes(processName.toLowerCase()) ||
                                  responseText.toLowerCase().includes(reference.toLowerCase());
 
-  expect(hasContextualReference).to.be.true;
+  expect(hasContextualReference).to.equal(true);
   console.log(`✅ AI understood ${reference} refers to ${processName}`);
 });
 
@@ -668,7 +668,7 @@ Then('offer to analyze its logs or status', function(this: any) {
                           responseText.toLowerCase().includes('status') ||
                           responseText.toLowerCase().includes('analyze');
 
-  expect(hasAnalysisOffer).to.be.true;
+  expect(hasAnalysisOffer).to.equal(true);
   console.log('✅ AI offered analysis options');
 });
 
@@ -678,7 +678,7 @@ Then('the AI should provide error analysis for the referenced process', function
                           responseText.toLowerCase().includes('issue') ||
                           responseText.toLowerCase().includes('problem');
 
-  expect(hasErrorAnalysis).to.be.true;
+  expect(hasErrorAnalysis).to.equal(true);
   console.log('✅ Error analysis provided for referenced process');
 });
 
@@ -689,7 +689,7 @@ Then('suggest specific debugging steps', function(this: any) {
                            responseText.toLowerCase().includes('restart') ||
                            responseText.toLowerCase().includes('fix');
 
-  expect(hasDebuggingSteps).to.be.true;
+  expect(hasDebuggingSteps).to.equal(true);
   console.log('✅ Specific debugging steps suggested');
 });
 

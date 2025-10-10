@@ -3,13 +3,14 @@
     {
       "name": "api-server",
       "script": "./test-apps/api-server.js",
+      "interpreter": "/opt/homebrew/bin/node",
       "instances": 1,
       "autorestart": true,
       "watch": false,
       "max_memory_restart": "500M",
       "env": {
         "NODE_ENV": "production",
-        "PORT": 3001
+        "PORT": 38451
       },
       "error_file": "./logs/api-server-error.log",
       "out_file": "./logs/api-server-out.log",
@@ -18,13 +19,14 @@
     {
       "name": "worker-queue",
       "script": "./test-apps/worker-queue.js",
+      "interpreter": "/opt/homebrew/bin/node",
       "instances": 1,
       "autorestart": true,
       "watch": false,
       "max_memory_restart": "300M",
       "env": {
         "NODE_ENV": "production",
-        "REDIS_URL": "redis://localhost:6379"
+        "REDIS_URL": "redis://localhost:36379"
       },
       "error_file": "./logs/worker-queue-error.log",
       "out_file": "./logs/worker-queue-out.log",
@@ -33,6 +35,7 @@
     {
       "name": "database-sync",
       "script": "./test-apps/database-sync.js",
+      "interpreter": "/opt/homebrew/bin/node",
       "instances": 1,
       "autorestart": true,
       "watch": false,
@@ -41,7 +44,7 @@
       "env": {
         "NODE_ENV": "production",
         "DB_HOST": "localhost",
-        "DB_PORT": 5432
+        "DB_PORT": 35432
       },
       "error_file": "./logs/database-sync-error.log",
       "out_file": "./logs/database-sync-out.log",

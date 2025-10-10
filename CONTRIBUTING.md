@@ -1,6 +1,6 @@
-# Contributing to PM2-X
+# Contributing to PM2+
 
-Thank you for your interest in contributing to PM2-X! This guide will help you get started with development and contributing to the project.
+Thank you for your interest in contributing to PM2+! This guide will help you get started with development and contributing to the project.
 
 ## Development Setup
 
@@ -14,8 +14,8 @@ Thank you for your interest in contributing to PM2-X! This guide will help you g
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/pm2x.git
-cd pm2x
+git clone https://github.com/heristop/pm2-plus.git
+cd pm2-plus
 
 # Install dependencies
 pnpm install
@@ -104,9 +104,9 @@ pnpm run demo:clean
 
 ## Project Structure
 
-```
+```text
 src/
-├── bin/                    # CLI entry point
+├── bin/                   # CLI entry point
 ├── commands/              # Slash command implementations
 ├── display/               # UI and rendering components
 ├── interfaces/            # TypeScript interfaces
@@ -128,7 +128,7 @@ features/                  # Cucumber BDD scenarios
 
 ## Architecture
 
-PM2-X uses a modular architecture with dependency injection for maintainability and extensibility.
+PM2+ uses a modular architecture with dependency injection for maintainability and extensibility.
 
 For detailed technical documentation, see:
 
@@ -174,9 +174,6 @@ For detailed technical documentation, see:
 ### Debugging Tips
 
 ```bash
-# Debug mode with verbose logging
-DEBUG=pm2x:* pnpm dev
-
 # Test specific scenarios
 pnpm run test -- --grep "specific test pattern"
 
@@ -186,7 +183,7 @@ pnpm run test:cucumber -- --tags "@your-tag"
 
 ## License
 
-By contributing to PM2-X, you agree that your contributions will be licensed under the MIT License.
+By contributing to PM2+, you agree that your contributions will be licensed under the MIT License.
 
 ## Getting Help
 
@@ -194,4 +191,4 @@ By contributing to PM2-X, you agree that your contributions will be licensed und
 - **Discussions**: Join community discussions for questions
 - **Documentation**: Check the main README for user-focused documentation
 
-Thank you for contributing to PM2-X! 🚀
+Thank you for contributing to PM2+! 🚀

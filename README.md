@@ -1,12 +1,12 @@
-# PM2-X
+# PM2+
 
 Modern interactive CLI for PM2 process management with AI assistance, built with TypeScript, ESM, and pnpm.
 
 ## ✨ Demo
 
-![PM2-X AI-Powered Demo](https://github.com/heristop/pm2-x/blob/main/docs/showcase-demo.gif?raw=true)
+![PM2+ AI-Powered Demo](docs/showcase-demo.gif)
 
-> **🎬 See PM2-X in Action:** Watch how PM2-X intelligently analyzes process errors, provides AI-powered diagnosis, and suggests actionable solutions—all through natural language interaction!
+> **🎬 See PM2+ in Action:** Watch how PM2+ intelligently analyzes process errors, provides AI-powered diagnosis, and suggests actionable solutions—all through natural language interaction!
 
 ## Features
 
@@ -44,23 +44,16 @@ Modern interactive CLI for PM2 process management with AI assistance, built with
 
 ### Global Installation (Recommended)
 
-Install PM2-X globally to use it anywhere:
+Install PM2+ globally to use it anywhere:
 
 ```bash
-# Using npm
-npm install -g pm2-x
-
-# Using yarn
-yarn global add pm2-x
-
-# Using pnpm
-pnpm add -g pm2-x
+npm install -g pm2-plus
 ```
 
 After installation, start the interactive CLI:
 
 ```bash
-pm2x
+pm2plus
 ```
 
 ## Available Commands
@@ -125,33 +118,33 @@ Once you start the CLI with `pnpm start`, you'll enter an interactive shell wher
 
 ```bash
 # Start the interactive CLI
-pm2x
+pm2plus
 
 # Basic monitoring:
-pm2x> /status
-pm2x> /metrics
-pm2x> /health
+PM2+ /status
+PM2+ /metrics
+PM2+ /health
 
 # Intelligent log analysis:
-pm2x> /logs smart my-app             # AI-powered error analysis
-pm2x> /doctor logs                   # Comprehensive diagnosis
-pm2x> /doctor errors my-app          # Critical error focus
+PM2+ /logs smart my-app             # AI-powered error analysis
+PM2+ /doctor logs                   # Comprehensive diagnosis
+PM2+ /doctor errors my-app          # Critical error focus
 
 # Advanced features:
-pm2x> /watch my-app 500 80           # Auto-restart if >500MB or >80% CPU
-pm2x> /grep "error" my-app           # Search logs for errors
-pm2x> /all restart                   # Restart all processes
+PM2+ /watch my-app 500 80           # Auto-restart if >500MB or >80% CPU
+PM2+ /grep "error" my-app           # Search logs for errors
+PM2+ /all restart                   # Restart all processes
 
 # AI-powered insights (requires OpenAI or Gemini API key):
-pm2x> my app is slow, can you help?  # Natural language
-pm2x> /ai why is my-app slow?        # Direct AI query
-pm2x> /diagnose my-app               # Process diagnosis
-pm2x> /optimize                      # Optimization suggestions
+PM2+ my app is slow, can you help?  # Natural language
+PM2+ /ai why is my-app slow?        # Direct AI query
+PM2+ /diagnose my-app               # Process diagnosis
+PM2+ /optimize                      # Optimization suggestions
 
 # Configuration:
-pm2x> /save production-config
-pm2x> /load production-config
-pm2x> /exit
+PM2+ /save production-config
+PM2+ /load production-config
+PM2+ /exit
 ```
 
 ## AI Assistant Setup
@@ -165,8 +158,8 @@ The AI features support both OpenAI and Google Gemini. Choose your preferred pro
 export OPENAI_API_KEY=your-openai-api-key
 
 # Option 2: Configure via CLI
-pm2x> /ai provider openai
-pm2x> /ai config
+PM2+ /ai provider openai
+PM2+ /ai config
 ```
 
 ### Google Gemini Setup
@@ -176,36 +169,36 @@ pm2x> /ai config
 export GEMINI_API_KEY=your-gemini-api-key
 
 # Option 2: Configure via CLI
-pm2x> /ai provider gemini
-pm2x> /ai config
+PM2+ /ai provider gemini
+PM2+ /ai config
 ```
 
 ### Provider Management
 
 ```bash
 # List available providers
-pm2x> /ai providers
+PM2+ /ai providers
 
 # Switch between providers
-pm2x> /ai provider gemini
-pm2x> /ai provider openai
+PM2+ /ai provider gemini
+PM2+ /ai provider openai
 
 # Check current configuration
-pm2x> /ai config
+PM2+ /ai config
 
 # Speed presets for optimal performance
-pm2x> /ai presets                  # Show available speed presets
-pm2x> /ai preset lightning         # GPT-5 nano - Ultra fast responses
-pm2x> /ai preset fast              # GPT-4o - Balanced speed and quality (recommended)
-pm2x> /ai preset smart             # GPT-5 - Highest intelligence for complex analysis
-pm2x> /ai preset reasoning         # GPT-5 mini - Deep thinking for complex problems
+PM2+ /ai presets                  # Show available speed presets
+PM2+ /ai preset lightning         # GPT-5 nano - Ultra fast responses
+PM2+ /ai preset fast              # GPT-4o - Balanced speed and quality (recommended)
+PM2+ /ai preset smart             # GPT-5 - Highest intelligence for complex analysis
+PM2+ /ai preset reasoning         # GPT-5 mini - Deep thinking for complex problems
 ```
 
 ## Configuration Management
 
-PM2-X uses a unified configuration file in your home directory with **safe concurrent access**:
+PM2+ uses a unified configuration file in your home directory with **safe concurrent access**:
 
-- **Location**: `~/.pm2x-config.json`
+- **Location**: `~/.pm2plus-config.json`
 - **Features**:
   - **Thread-safe configuration**: Uses file locking to prevent corruption
   - **Atomic writes**: Prevents race conditions during config updates
@@ -217,11 +210,11 @@ PM2-X uses a unified configuration file in your home directory with **safe concu
   - User preferences (auto-execute mode, verbosity, confirmation level)
   - Provider-specific configurations
 
-This single file manages all PM2-X settings with enterprise-grade reliability and concurrent access protection.
+This single file manages all PM2+ settings with enterprise-grade reliability and concurrent access protection.
 
 ```bash
 # View current configuration
-pm2x> /ai config
+PM2+ /ai config
 
 # The config file structure:
 {
@@ -245,15 +238,15 @@ pm2x> /ai config
 
 ## 🤖 AI-First Interface Vision
 
-PM2-X is evolving toward an AI-native experience where natural language becomes the primary interface:
+PM2+ is evolving toward an AI-native experience where natural language becomes the primary interface:
 
 ### Current Interface
 
 ```bash
-pm2x> my app is slow
+PM2+ my app is slow
 ❌ Commands must start with /. Type /help for available commands.
 
-pm2x> /ai my app is slow
+PM2+ /ai my app is slow
 🤖 AI Assistant is thinking...
 [AI response without actions]
 ```
@@ -261,7 +254,7 @@ pm2x> /ai my app is slow
 ### Future AI-First Interface
 
 ```bash
-pm2x> my app is slow
+PM2+ my app is slow
 🤖 Analyzing your processes...
 I can see that "my-app" is using 85% CPU and 420MB memory. This could be causing slowness.
 
@@ -273,7 +266,7 @@ Suggestions:
 • Check memory usage: /metrics my-app
 • Would you like me to restart it now?
 
-pm2x> yes restart it
+PM2+ yes restart it
 🔄 Restarting my-app...
 ✅ my-app restarted successfully
 📊 New metrics: CPU 12%, Memory 89MB - much better!
@@ -283,23 +276,23 @@ pm2x> yes restart it
 
 ```bash
 # Process troubleshooting
-pm2x> why did my-app crash?
+PM2+ why did my-app crash?
 🤖 Analyzing crash logs... Found memory limit exceeded at 2:34 AM
 🔧 Suggesting: increase max_memory_restart to 800MB
 
 # Batch operations
-pm2x> restart all errored processes
+PM2+ restart all errored processes
 🤖 Found 3 errored processes: api-server, worker-1, notifications
 🔄 Restarting all... Done! All processes now online.
 
 # Performance optimization
-pm2x> optimize my cluster setup
+PM2+ optimize my cluster setup
 🤖 Analysis: Your 4 instances are underutilized (avg 15% CPU)
 💡 Recommendation: Reduce to 2 instances to save 180MB memory
 🚀 Would you like me to scale down automatically?
 
 # Learning and discovery
-pm2x> how do I monitor memory usage over time?
+PM2+ how do I monitor memory usage over time?
 🤖 I can help! Use `/history collect` to start tracking, then `/history` to view trends.
 📊 Starting collection now... You'll have data in 30 seconds.
 ```
