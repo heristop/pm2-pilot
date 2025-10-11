@@ -50,13 +50,13 @@ Then('I should see a process list containing:', function(this: ConversationWorld
   
   expectedProcesses.forEach(processName => {
     expect(this.shouldContainProcess(processName), 
-      `Response should contain process "${processName}"`).to.be.true;
+      `Response should contain process "${processName}"`).to.equal(true);
   });
 });
 
 Then('the response should indicate {string} is {string}', function(this: ConversationWorld, processName: string, status: string) {
   expect(this.shouldIndicateStatus(processName, status),
-    `Response should indicate ${processName} is ${status}`).to.be.true;
+    `Response should indicate ${processName} is ${status}`).to.equal(true);
 });
 
 // Then steps for detailed status
@@ -68,7 +68,7 @@ Then('I should see detailed status including:', function(this: ConversationWorld
   const details = dataTable.raw().flat();
   
   expect(this.shouldShowDetailedStatus(details),
-    `Response should show detailed status`).to.be.true;
+    `Response should show detailed status`).to.equal(true);
 });
 
 // Then steps for logs
@@ -82,7 +82,7 @@ Then('the AI should understand {string} refers to {string}', function(this: Conv
 
 Then('I should see logs containing error entries:', function(this: ConversationWorld, docString: string) {
   expect(this.shouldContainErrorLogs(docString),
-    'Response should contain the expected error logs').to.be.true;
+    'Response should contain the expected error logs').to.equal(true);
 });
 
 // Then steps for debugging assistance
@@ -92,21 +92,21 @@ Then('the AI should provide debugging assistance', function(this: ConversationWo
     this.lastResponse.toLowerCase().includes(keyword)
   );
   
-  expect(hasDebugContent, 'Response should provide debugging assistance').to.be.true;
+  expect(hasDebugContent, 'Response should provide debugging assistance').to.equal(true);
 });
 
-Then('the AI should suggest PM2-X natural language commands like:', function(this: ConversationWorld, dataTable: DataTable) {
+Then('the AI should suggest PM2+ natural language commands like:', function(this: ConversationWorld, dataTable: DataTable) {
   const commands = dataTable.raw().flat();
   
   expect(this.shouldSuggestPM2XCommands(commands),
-    'Response should suggest PM2-X natural language commands').to.be.true;
+    'Response should suggest PM2+ natural language commands').to.equal(true);
 });
 
 Then('the AI should NOT suggest raw PM2 commands like:', function(this: ConversationWorld, dataTable: DataTable) {
   const commands = dataTable.raw().flat();
   
   expect(this.shouldNotSuggestPM2Commands(commands),
-    'Response should NOT suggest raw PM2 commands').to.be.true;
+    'Response should NOT suggest raw PM2 commands').to.equal(true);
 });
 
 Then('a pending action should be created for analysis', function(this: ConversationWorld) {
@@ -118,7 +118,7 @@ Then('a pending action should be created for analysis', function(this: Conversat
 Then('the AI should recognize this as {string} intent', function(this: ConversationWorld, _intent: string) {
   // In real implementation, we'd check the CommandAnalysis
   // For now, we check if action was executed (response changed)
-  expect(this.lastResponse).to.not.be.empty;
+  expect(this.lastResponse).to.not.equal('');
 });
 
 Then('the pending action should be executed', function(this: ConversationWorld) {
@@ -146,7 +146,7 @@ Then('the AI should suggest {string} or {string}', function(this: ConversationWo
     this.lastResponse.toLowerCase().includes(suggestion1.toLowerCase()) ||
     this.lastResponse.toLowerCase().includes(suggestion2.toLowerCase());
     
-  expect(hasSuggestion, `Response should suggest "${suggestion1}" or "${suggestion2}"`).to.be.true;
+  expect(hasSuggestion, `Response should suggest "${suggestion1}" or "${suggestion2}"`).to.equal(true);
 });
 
 Then('the AI should NOT suggest {string}', function(this: ConversationWorld, badSuggestion: string) {
@@ -180,7 +180,7 @@ Then('the AI should understand the intent regardless of language', function(this
     responseText.toLowerCase().includes(keyword.toLowerCase())
   );
 
-  expect(hasProcessContent, 'Response should contain process-related content indicating understanding').to.be.true;
+  expect(hasProcessContent, 'Response should contain process-related content indicating understanding').to.equal(true);
 });
 
 Then('respond appropriately with error analysis', function(this: ConversationWorld) {
@@ -190,7 +190,7 @@ Then('respond appropriately with error analysis', function(this: ConversationWor
     this.lastResponse.toLowerCase().includes(keyword.toLowerCase())
   );
 
-  expect(hasErrorAnalysis, 'Response should contain error analysis').to.be.true;
+  expect(hasErrorAnalysis, 'Response should contain error analysis').to.equal(true);
 });
 
 // Context building steps
@@ -205,7 +205,7 @@ When('I ask {string} referring to the previous process', async function(this: Co
 Then('the conversation context should maintain process references', function(this: ConversationWorld) {
   // In a full implementation, we'd check that the context manager maintains proper references
   // For now, we check that responses are contextually appropriate
-  expect(this.lastResponse).to.not.be.empty;
+  expect(this.lastResponse).to.not.equal('');
 });
 
 // System interaction steps
@@ -221,7 +221,7 @@ Then('the AI should handle follow-up questions appropriately', function(this: Co
     this.lastResponse.toLowerCase().includes(keyword)
   );
 
-  expect(hasContextualLanguage, 'Response should use contextual language').to.be.true;
+  expect(hasContextualLanguage, 'Response should use contextual language').to.equal(true);
 });
 
 // Additional missing step definitions for log analysis and AI diagnosis
@@ -274,14 +274,14 @@ Then('I should see the error logs displayed', function(this: ConversationWorld) 
   const hasLogContent = this.lastResponse.includes('ERROR') ||
                        this.lastResponse.includes('error') ||
                        this.lastResponse.includes('log');
-  expect(hasLogContent, 'Response should contain log content').to.be.true;
+  expect(hasLogContent, 'Response should contain log content').to.equal(true);
 });
 
 Then('the system should automatically detect errors in the logs', function(this: ConversationWorld) {
   const hasErrorDetection = this.lastResponse.includes('error detected') ||
                            this.lastResponse.includes('found error') ||
                            this.lastResponse.includes('analysis');
-  expect(hasErrorDetection, 'Response should indicate error detection').to.be.true;
+  expect(hasErrorDetection, 'Response should indicate error detection').to.equal(true);
 });
 
 Then('I should see an AI diagnosis containing:', function(this: ConversationWorld, dataTable: DataTable) {
@@ -291,7 +291,7 @@ Then('I should see an AI diagnosis containing:', function(this: ConversationWorl
   const hasDiagnostic = diagnosticElements.some(element =>
     this.lastResponse.toLowerCase().includes(element.toLowerCase())
   );
-  expect(hasDiagnostic, 'Response should contain diagnostic elements').to.be.true;
+  expect(hasDiagnostic, 'Response should contain diagnostic elements').to.equal(true);
 });
 
 Then('the AI should suggest follow-up actions like:', function(this: ConversationWorld, dataTable: DataTable) {
@@ -301,7 +301,7 @@ Then('the AI should suggest follow-up actions like:', function(this: Conversatio
   const hasSuggestions = actions.some(action =>
     this.lastResponse.toLowerCase().includes(action.toLowerCase().replace(/"/g, ''))
   );
-  expect(hasSuggestions, 'Response should suggest follow-up actions').to.be.true;
+  expect(hasSuggestions, 'Response should suggest follow-up actions').to.equal(true);
 });
 
 Then('the AI should provide comprehensive error analysis', function(this: ConversationWorld) {
@@ -309,7 +309,7 @@ Then('the AI should provide comprehensive error analysis', function(this: Conver
   const hasAnalysis = analysisKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword)
   );
-  expect(hasAnalysis, 'Response should provide comprehensive error analysis').to.be.true;
+  expect(hasAnalysis, 'Response should provide comprehensive error analysis').to.equal(true);
 });
 
 Then('suggest using {string} for detailed diagnosis', function(this: ConversationWorld, command: string) {
@@ -320,7 +320,7 @@ Then('I should see recent logs displayed with timestamps', function(this: Conver
   const hasTimestamps = this.lastResponse.includes('[') ||
                        this.lastResponse.includes('timestamp') ||
                        this.lastResponse.includes('time');
-  expect(hasTimestamps, 'Response should include timestamps').to.be.true;
+  expect(hasTimestamps, 'Response should include timestamps').to.equal(true);
 });
 
 Then('I should see an error analysis section showing:', function(this: ConversationWorld, dataTable: DataTable) {
@@ -330,7 +330,7 @@ Then('I should see an error analysis section showing:', function(this: Conversat
   const hasAnalysisSections = sections.some(section =>
     this.lastResponse.includes(section) || this.lastResponse.toLowerCase().includes('analysis')
   );
-  expect(hasAnalysisSections, 'Response should contain error analysis sections').to.be.true;
+  expect(hasAnalysisSections, 'Response should contain error analysis sections').to.equal(true);
 });
 
 Then('I should see a comprehensive log analysis report with:', function(this: ConversationWorld, dataTable: DataTable) {
@@ -342,7 +342,7 @@ Then('I should see a comprehensive log analysis report with:', function(this: Co
     this.lastResponse.toLowerCase().includes('report') ||
     this.lastResponse.toLowerCase().includes('analysis')
   );
-  expect(hasReportElements, 'Response should contain comprehensive report elements').to.be.true;
+  expect(hasReportElements, 'Response should contain comprehensive report elements').to.equal(true);
 });
 
 Then('error breakdown by category showing:', function(this: ConversationWorld, dataTable: DataTable) {
@@ -352,7 +352,7 @@ Then('error breakdown by category showing:', function(this: ConversationWorld, d
   const hasCategories = categories.some(category =>
     this.lastResponse.toLowerCase().includes(category.toLowerCase())
   ) || this.lastResponse.toLowerCase().includes('category');
-  expect(hasCategories, 'Response should show error breakdown by category').to.be.true;
+  expect(hasCategories, 'Response should show error breakdown by category').to.equal(true);
 });
 
 Then('actionable recommendations prioritized by severity', function(this: ConversationWorld) {
@@ -360,7 +360,7 @@ Then('actionable recommendations prioritized by severity', function(this: Conver
   const hasRecommendations = recommendationKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword)
   );
-  expect(hasRecommendations, 'Response should contain actionable recommendations').to.be.true;
+  expect(hasRecommendations, 'Response should contain actionable recommendations').to.equal(true);
 });
 
 Then('the AI response should include recent error analysis', function(this: ConversationWorld) {
@@ -368,7 +368,7 @@ Then('the AI response should include recent error analysis', function(this: Conv
   const hasErrorAnalysis = analysisKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword)
   );
-  expect(hasErrorAnalysis, 'Response should include error analysis').to.be.true;
+  expect(hasErrorAnalysis, 'Response should include error analysis').to.equal(true);
 });
 
 Then('mention that {string}', function(this: ConversationWorld, expectedMention: string) {
@@ -380,7 +380,7 @@ Then('the AI should automatically include error context in the response', functi
   const hasErrorContext = contextKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword)
   );
-  expect(hasErrorContext, 'Response should include error context').to.be.true;
+  expect(hasErrorContext, 'Response should include error context').to.equal(true);
 });
 
 Then('provide specific error details from recent logs', function(this: ConversationWorld) {
@@ -388,7 +388,7 @@ Then('provide specific error details from recent logs', function(this: Conversat
   const hasDetails = detailKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword)
   );
-  expect(hasDetails, 'Response should provide specific error details').to.be.true;
+  expect(hasDetails, 'Response should provide specific error details').to.equal(true);
 });
 
 // Missing step definitions
@@ -397,13 +397,13 @@ Then('I should see an error-focused diagnosis with:', function(this: Conversatio
   const hasDiagnostic = diagnosticElements.some(element =>
     this.lastResponse.toLowerCase().includes(element.toLowerCase())
   );
-  expect(hasDiagnostic, 'Response should contain diagnostic elements').to.be.true;
+  expect(hasDiagnostic, 'Response should contain diagnostic elements').to.equal(true);
 });
 
 Then('suggest immediate actions like {string} or {string}', function(this: ConversationWorld, action1: string, action2: string) {
   const hasAction1 = this.lastResponse.toLowerCase().includes(action1.toLowerCase());
   const hasAction2 = this.lastResponse.toLowerCase().includes(action2.toLowerCase());
-  expect(hasAction1 || hasAction2, 'Response should suggest immediate actions').to.be.true;
+  expect(hasAction1 || hasAction2, 'Response should suggest immediate actions').to.equal(true);
 });
 
 When('I use the {string} command again', function(this: ConversationWorld, command: string) {
@@ -417,7 +417,7 @@ Then('suggest diagnostic commands like {string}', function(this: ConversationWor
 
 Then('the system should fall back to pattern-based error analysis', function(this: ConversationWorld) {
   // When AI is not available, system should still provide basic analysis
-  expect(this.lastResponse).to.not.be.empty;
+  expect(this.lastResponse).to.not.equal('');
 });
 
 Then('still provide basic error categorization', function(this: ConversationWorld) {
@@ -425,7 +425,7 @@ Then('still provide basic error categorization', function(this: ConversationWorl
   const hasCategories = categoryKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword)
   );
-  expect(hasCategories, 'Response should provide basic categorization').to.be.true;
+  expect(hasCategories, 'Response should provide basic categorization').to.equal(true);
 });
 
 Then('show simplified recommendations', function(this: ConversationWorld) {
@@ -433,12 +433,12 @@ Then('show simplified recommendations', function(this: ConversationWorld) {
   const hasRecommendations = recommendationKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword)
   );
-  expect(hasRecommendations, 'Response should show simplified recommendations').to.be.true;
+  expect(hasRecommendations, 'Response should show simplified recommendations').to.equal(true);
 });
 
 Then('not show AI confidence percentages', function(this: ConversationWorld) {
   const hasPercentages = this.lastResponse.includes('%') && this.lastResponse.includes('confidence');
-  expect(hasPercentages, 'Response should not show AI confidence percentages').to.be.false;
+  expect(hasPercentages, 'Response should not show AI confidence percentages').to.equal(false);
 });
 
 Then('I should see enhanced AI-powered analysis', function(this: ConversationWorld) {
@@ -446,13 +446,13 @@ Then('I should see enhanced AI-powered analysis', function(this: ConversationWor
   const hasEnhanced = enhancedKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword.toLowerCase())
   );
-  expect(hasEnhanced, 'Response should show enhanced AI analysis').to.be.true;
+  expect(hasEnhanced, 'Response should show enhanced AI analysis').to.equal(true);
 });
 
 Then('confidence percentages should be displayed', function(this: ConversationWorld) {
   const hasConfidencePercentages = this.lastResponse.includes('%') &&
                                   (this.lastResponse.includes('confidence') || this.lastResponse.includes('certainty'));
-  expect(hasConfidencePercentages, 'Response should display confidence percentages').to.be.true;
+  expect(hasConfidencePercentages, 'Response should display confidence percentages').to.equal(true);
 });
 
 Then('more sophisticated root cause analysis should be provided', function(this: ConversationWorld) {
@@ -460,7 +460,7 @@ Then('more sophisticated root cause analysis should be provided', function(this:
   const hasSophisticated = sophisticatedKeywords.some(keyword =>
     this.lastResponse.toLowerCase().includes(keyword.toLowerCase())
   );
-  expect(hasSophisticated, 'Response should provide sophisticated analysis').to.be.true;
+  expect(hasSophisticated, 'Response should provide sophisticated analysis').to.equal(true);
 });
 
 // Helper functions

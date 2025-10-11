@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Test API Server - Generates realistic errors for PM2-X demo
+ * Test API Server - Generates realistic errors for PM2+ demo
  */
 
 import http from 'http';
@@ -14,7 +14,7 @@ void (async () => {
     // This will fail and generate the exact error from our tests
     await import('./non-existent-module.js');
   } catch {
-    console.error('Error [ERR_MODULE_NOT_FOUND]: Cannot find module \'/Users/alexandre_mogere/Workspace/pm2-cli/demo/test-apps/non-existent-module.js\' imported from /Users/alexandre_mogere/Workspace/pm2-cli/demo/test-apps/api-server.js');
+    console.error('Error [ERR_MODULE_NOT_FOUND]: Cannot find module \'/Users/alexandre_mogere/Workspace/pm2x/demo/test-apps/non-existent-module.js\' imported from /Users/alexandre_mogere/Workspace/pm2x/demo/test-apps/api-server.js');
     console.error('    at ModuleLoader.resolve (node:internal/modules/esm/loader:582:38)');
     console.error('    at finalizeResolution (node:internal/modules/esm/resolve:257:11)');
   }
@@ -49,8 +49,8 @@ const server = http.createServer((req, res) => {
   res.end(JSON.stringify({ status: 'ok', timestamp: Date.now() }));
 });
 
-server.listen(3001, () => {
-  console.log('✅ API Server running on port 3001');
+server.listen(38451, () => {
+  console.log('✅ API Server running on port 38451');
 });
 
 // Simulate periodic issues

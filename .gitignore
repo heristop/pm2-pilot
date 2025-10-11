@@ -27,3 +27,6 @@ coverage/
 .DS_Store
 .idea/
 .vscode/
+
+# Generated version file
+src/version.ts

@@ -168,7 +168,7 @@ describe('OpenAIService', () => {
       expect(mockOpenAIClient.chat.completions.create).toHaveBeenCalledWith({
         model: 'gpt-4.1',
         messages: [
-          { role: 'system', content: expect.stringContaining('PM2-X') },
+          { role: 'system', content: expect.stringContaining('PM2+') },
           { role: 'user', content: 'test prompt' }
         ],
         max_tokens: 1000,
@@ -183,7 +183,7 @@ describe('OpenAIService', () => {
       expect(mockOpenAIClient.chat.completions.create).toHaveBeenCalledWith(
         expect.objectContaining({
           messages: [
-            { role: 'system', content: expect.stringContaining('PM2-X') },
+            { role: 'system', content: expect.stringContaining('PM2+') },
             { role: 'user', content: 'Context:\ntest context\n\nQuestion: test prompt' }
           ]
         })

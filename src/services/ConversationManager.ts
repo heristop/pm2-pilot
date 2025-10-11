@@ -98,7 +98,7 @@ export class ConversationManager {
     }
 
     try {
-      const prompt = `PM2-X Process Name Extractor. Analyze user input for process names.
+      const prompt = `PM2+ Process Name Extractor. Analyze user input for process names.
 
 INPUT: "${text}"
 

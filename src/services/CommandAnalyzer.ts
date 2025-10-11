@@ -103,7 +103,7 @@ export class CommandAnalyzer {
   private buildAnalysisPrompt(input: string, context?: ConversationContext): string {
     const contextInfo = context ? this.buildContextString(context) : '';
     
-    return `PM2-X Command Analyzer. Map user input to PM2 commands.
+    return `PM2+ Command Analyzer. Map user input to PM2 commands.
 
 INPUT: "${input}"
 ${contextInfo}

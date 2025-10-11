@@ -1,12 +1,12 @@
-# PM2-X Architecture
+# PM2+ Architecture
 
 ## Overview
 
-PM2-X is built with a modular architecture that separates concerns between AI processing, command routing, and PM2 operations. The system is designed to be extensible and maintainable while providing a seamless user experience.
+PM2+ is built with a modular architecture that separates concerns between AI processing, command routing, and PM2 operations. The system is designed to be extensible and maintainable while providing a seamless user experience.
 
 ## Intelligent Command Processing Workflow
 
-PM2-X uses an advanced AI-driven workflow to process natural language commands in any language:
+PM2+ uses an advanced AI-driven workflow to process natural language commands in any language:
 
 ```mermaid
 flowchart TD
@@ -91,7 +91,7 @@ Individual command implementations following the Command Pattern.
 
 ## Dependency Injection
 
-PM2-X uses `tsyringe` for dependency injection, providing:
+PM2+ uses `tsyringe` for dependency injection, providing:
 
 - **Loose coupling** between components
 - **Easy testing** with mock implementations

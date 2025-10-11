@@ -23,7 +23,7 @@ class VHSDemoRecorder {
   constructor(options: Partial<VHSRecordingOptions> = {}) {
     this.options = {
       outputName: 'showcase-demo',
-      title: 'PM2-X AI-Powered Process Manager Demo',
+      title: 'PM2+ AI-Powered Process Manager Demo',
       width: 1200,
       height: 800,
       fontSize: 14,
@@ -59,7 +59,7 @@ Set Height ${this.options.height}
 Set Shell "bash"
 Set TypingSpeed 60ms
 
-# Run the actual live demo showcase - this shows the real PM2-X AI interface
+# Run the actual live demo showcase - this shows the real PM2+ AI interface
 Type "pnpm run demo:showcase"
 Enter
 Sleep 85s

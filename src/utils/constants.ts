@@ -2,11 +2,11 @@ import * as path from 'node:path';
 import { homedir } from 'node:os';
 
 /**
- * PM2-X configuration constants
+ * PM2+ configuration constants
  */
 export const PM2X_CONFIG = {
-  CONFIG_FILE: path.join(homedir(), '.pm2x-config.json'),
-  HISTORY_FILE: path.join(homedir(), '.pm2x-command-history.json'),
+  CONFIG_FILE: path.join(homedir(), '.pm2plus-config.json'),
+  HISTORY_FILE: path.join(homedir(), '.pm2plus-command-history.json'),
 } as const;
 
 /**

@@ -6,7 +6,7 @@ import * as path from 'path';
 import chalk from 'chalk';
 
 const DEMO_DIR = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const PM2X_PATH = path.resolve(DEMO_DIR, '../dist/bin/pm2x.js');
+const PM2X_PATH = path.resolve(DEMO_DIR, '../dist/bin/pm2plus.js');
 const PM2_PATH = path.resolve(DEMO_DIR, '../node_modules/.bin/pm2');
 const ECOSYSTEM_PATH = path.join(DEMO_DIR, 'ecosystem.demo.json');
 
@@ -70,14 +70,14 @@ class AutoDemo {
     },
     {
       command: '/exit',
-      description: '👋 Exiting PM2-X demo gracefully',
+      description: '👋 Exiting PM2+ demo gracefully',
       delay: 3,
       typingSpeed: 120
     }
   ];
 
   async startDemoProcesses(): Promise<void> {
-    console.log(chalk.blue('🚀 Starting PM2-X Auto Demo...'));
+    console.log(chalk.blue('🚀 Starting PM2+ Auto Demo...'));
     console.log(chalk.gray('Setting up demo environment...\n'));
 
     // Stop any existing PM2 processes
@@ -147,8 +147,8 @@ class AutoDemo {
 
   showIntro(): void {
     console.log(chalk.cyan('\n╔══════════════════════════════════════════════════════════════════════════════╗'));
-    console.log(chalk.cyan('║') + chalk.white.bold('                              🎬 PM2-X Auto Demo                              ') + chalk.cyan('║'));
-    console.log(chalk.cyan('║') + chalk.blue('                    Watch PM2-X showcase its AI capabilities                  ') + chalk.cyan('║'));
+    console.log(chalk.cyan('║') + chalk.white.bold('                              🎬 PM2+ Auto Demo                               ') + chalk.cyan('║'));
+    console.log(chalk.cyan('║') + chalk.blue('                    Watch PM2+ showcase its AI capabilities                   ') + chalk.cyan('║'));
     console.log(chalk.cyan('╚══════════════════════════════════════════════════════════════════════════════╝'));
     
     console.log(chalk.white('\n🎯 What you\'ll see:'));
@@ -156,18 +156,18 @@ class AutoDemo {
     console.log(chalk.gray('   • AI-powered error detection and analysis'));
     console.log(chalk.gray('   • Intelligent log processing with root cause analysis'));
     console.log(chalk.gray('   • Automated diagnosis and actionable recommendations'));
-    console.log(chalk.gray('   • Natural language interaction with PM2-X AI'));
+    console.log(chalk.gray('   • Natural language interaction with PM2+ AI'));
     
     console.log(chalk.cyan('\n⏱️  Demo Timeline:'));
     console.log(chalk.gray('   • ~60 seconds of automated demonstration'));
     console.log(chalk.gray('   • Real AI responses (not simulated)'));
     console.log(chalk.gray('   • Live process management scenarios'));
     
-    console.log(chalk.yellow('\n📺 Sit back and watch PM2-X in action!\n'));
+    console.log(chalk.yellow('\n📺 Sit back and watch PM2+ in action!\n'));
   }
 
   async launchPM2X(): Promise<void> {
-    console.log(chalk.blue('🚀 Launching PM2-X...\n'));
+    console.log(chalk.blue('🚀 Launching PM2+...\n'));
     
     this.pm2xProcess = spawn('node', [PM2X_PATH], {
       stdio: ['pipe', 'inherit', 'inherit'],
@@ -182,16 +182,16 @@ class AutoDemo {
       }
     });
 
-    // Wait for PM2-X to initialize
+    // Wait for PM2+ to initialize
     await new Promise(resolve => setTimeout(resolve, 2000));
 
     // Start the automated demo sequence
     await this.runDemoSequence();
 
-    // Handle PM2-X exit
+    // Handle PM2+ exit
     this.pm2xProcess.on('close', (code) => {
-      console.log(chalk.green('\n🎉 PM2-X Auto Demo Completed!'));
-      console.log(chalk.gray('Thank you for watching PM2-X demonstrate its AI-powered process management.'));
+      console.log(chalk.green('\n🎉 PM2+ Auto Demo Completed!'));
+      console.log(chalk.gray('Thank you for watching PM2+ demonstrate its AI-powered process management.'));
       process.exit(code || 0);
     });
 
@@ -275,6 +275,8 @@ async function main(): Promise<void> {
     await demo.run();
   } catch (error) {
     console.error(chalk.red('❌ Auto demo failed:'), error instanceof Error ? error.message : String(error));
+    console.log(chalk.cyan('\n💡 Try running \'pnpm demo:ecosystem\' to test just the PM2 processes'));
+    console.log(chalk.gray('   This helps debug if the issue is with process startup or the demo script'));
     process.exit(1);
   }
 }
@@ -282,5 +284,6 @@ async function main(): Promise<void> {
 // Run the autonomous demo
 main().catch((error) => {
   console.error(chalk.red('Unexpected error:'), error);
+  console.log(chalk.cyan('\n💡 Try running \'pnpm demo:ecosystem\' to test just the PM2 processes'));
   process.exit(1);
 });

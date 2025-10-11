@@ -30,11 +30,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         
-      - name: Run CI Quality Pipeline
-        run: pnpm run ci:quality
-        
       - name: Run build
         run: pnpm run build
+
+      - name: Run CI Quality Pipeline
+        run: pnpm run ci:quality
         
       - name: Upload coverage reports
         uses: codecov/codecov-action@v5
@@ -100,22 +100,22 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         
+      - name: Build application
+        run: pnpm run build 
+
       - name: Run tests
         run: pnpm run test
-        
-      - name: Build application
-        run: pnpm run build
         
       - name: Test built application (Unix)
         if: runner.os != 'Windows'
         run: |
-          chmod +x dist/bin/pm2x.js
-          timeout 5s node dist/bin/pm2x.js --version || true
+          chmod +x dist/bin/pm2plus.js
+          timeout 5s node dist/bin/pm2plus.js --version || true
           
       - name: Test built application (Windows)
         if: runner.os == 'Windows'
         run: |
-          node dist/bin/pm2x.js --version
+          node dist/bin/pm2plus.js --version
         shell: cmd
 
   # publish:
@@ -150,7 +150,7 @@ jobs:
   #       id: version-check
   #       run: |
   #         CURRENT_VERSION=$(node -p "require('./package.json').version")
-  #         PUBLISHED_VERSION=$(npm view pm2x version 2>/dev/null || echo "0.0.0")
+  #         PUBLISHED_VERSION=$(npm view pm2plus version 2>/dev/null || echo "0.0.0")
   #         echo "current=$CURRENT_VERSION" >> $GITHUB_OUTPUT
   #         echo "published=$PUBLISHED_VERSION" >> $GITHUB_OUTPUT
   #         if [ "$CURRENT_VERSION" != "$PUBLISHED_VERSION" ]; then
