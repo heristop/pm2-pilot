@@ -9,8 +9,7 @@ const external = [
   'gemini',
   'openai',
   'pm2',
-  'reflect-metadata',
-  'tsyringe'
+  'reflect-metadata'
 ];
 
 export default defineConfig([
@@ -37,6 +36,7 @@ export default defineConfig([
     clean: false,
     target: 'node20',
     external,
+    noExternal: ['tsyringe'],
     banner: {
       js: '#!/usr/bin/env node'
     }
