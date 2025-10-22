@@ -1,12 +1,12 @@
-# PM2+ Architecture
+# PM2 Hub Architecture
 
 ## Overview
 
-PM2+ is built with a modular architecture that separates concerns between AI processing, command routing, and PM2 operations. The system is designed to be extensible and maintainable while providing a seamless user experience.
+PM2 Hub is built with a modular architecture that separates concerns between AI processing, command routing, and PM2 operations. The system is designed to be extensible and maintainable while providing a seamless user experience.
 
 ## Intelligent Command Processing Workflow
 
-PM2+ uses an advanced AI-driven workflow to process natural language commands in any language:
+PM2 Hub uses an advanced AI-driven workflow to process natural language commands in any language:
 
 ```mermaid
 flowchart TD
@@ -91,7 +91,7 @@ Individual command implementations following the Command Pattern.
 
 ## Dependency Injection
 
-PM2+ uses `tsyringe` for dependency injection, providing:
+PM2 Hub uses `tsyringe` for dependency injection, providing:
 
 - **Loose coupling** between components
 - **Easy testing** with mock implementations
@@ -182,7 +182,7 @@ Error → ErrorAnalysisService → AI Diagnosis → Actionable Suggestions
 ### Configuration Structure
 
 ```typescript
-interface PM2XConfig {
+interface PM2HubConfig {
   provider: 'openai' | 'gemini';
   userPreferences: UserPreferences;
   openai?: OpenAIConfig;

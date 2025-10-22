@@ -40,7 +40,7 @@ class DemoRecorder {
       width: this.width,
       height: this.height,
       timestamp: Math.floor(this.startTime / 1000),
-      title: 'PM2+ Orchestrated Demo',
+      title: 'PM2 Pilot Orchestrated Demo',
       env: {
         TERM: 'xterm-256color',
         SHELL: '/bin/bash'
@@ -126,7 +126,7 @@ After(async function() {
   console.log('🧹 Demo scenario cleanup completed');
 });
 
-Given('I have a clean PM2+ demo environment', async function() {
+Given('I have a clean PM2 Pilot demo environment', async function() {
   console.log('⚙️ Setting up clean demo environment...');
   
   // Stop any existing PM2 processes
@@ -185,12 +185,12 @@ Given('the {string} process has realistic error logs:', function(processName: st
   console.log(`📋 Configured realistic error logs for ${processName}`);
 });
 
-When('I run the PM2+ command {string}', async function(command: string) {
+When('I run the PM2 Pilot command {string}', async function(command: string) {
   console.log(`⌨️ Executing command: ${command}`);
   
   if (!world.pm2xProcess) {
-    // Start PM2+ process if not already running
-    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2plus.js');
+    // Start PM2 Pilot process if not already running
+    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2pilot.js');
     
     world.pm2xProcess = spawn('node', [pm2xPath], {
       cwd: process.cwd(),
@@ -220,15 +220,15 @@ When('I run the PM2+ command {string}', async function(command: string) {
     
     // Set up exit handler immediately
     world.pm2xProcess.on('exit', (code) => {
-      console.log(`📤 PM2+ process exited with code: ${code}`);
+      console.log(`📤 PM2 Pilot process exited with code: ${code}`);
       world.pm2xProcess = undefined;
     });
     
-    // Wait for PM2+ to initialize
+    // Wait for PM2 Pilot to initialize
     await new Promise(resolve => setTimeout(resolve, 2000));
   }
   
-  // Send command to PM2+
+  // Send command to PM2 Pilot
   world.pm2xProcess?.stdin?.write(command + '\r');
   world.lastCommandTime = Date.now();
   
@@ -439,7 +439,7 @@ Then('display a professional closing message', function() {
   const hasClosingMessage = world.currentOutput.includes('goodbye') ||
                            world.currentOutput.includes('thank you') ||
                            world.currentOutput.includes('exit') ||
-                           world.currentOutput.includes('PM2+');
+                           world.currentOutput.includes('PM2 Pilot');
   
   expect(hasClosingMessage).to.equal(true);
   console.log('✅ Professional closing message displayed');
@@ -475,7 +475,7 @@ Given('the demo recorder is measuring response times', function() {
   console.log('⏱️ Response time measurement started');
 });
 
-When('I run any PM2+ command during the demo', async function() {
+When('I run any PM2 Pilot command during the demo', async function() {
   world.lastCommandTime = Date.now();
 
   // Execute a sample command for testing
@@ -483,8 +483,8 @@ When('I run any PM2+ command during the demo', async function() {
   console.log(`⌨️ Executing demo command: ${command}`);
 
   if (!world.pm2xProcess) {
-    // Start PM2+ process if not already running
-    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2plus.js');
+    // Start PM2 Pilot process if not already running
+    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2pilot.js');
 
     world.pm2xProcess = spawn('node', [pm2xPath], {
       cwd: process.cwd(),
@@ -497,7 +497,7 @@ When('I run any PM2+ command during the demo', async function() {
       }
     });
 
-    // Wait for PM2+ to start
+    // Wait for PM2 Pilot to start
     await new Promise(resolve => setTimeout(resolve, 2000));
   }
 
@@ -539,8 +539,8 @@ When('I run {string}', async function(command: string) {
   console.log(`⌨️ Executing command: ${command}`);
 
   if (!world.pm2xProcess) {
-    // Start PM2+ process if not already running
-    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2plus.js');
+    // Start PM2 Pilot process if not already running
+    const pm2xPath = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../dist/bin/pm2pilot.js');
 
     world.pm2xProcess = spawn('node', [pm2xPath], {
       cwd: process.cwd(),
@@ -553,7 +553,7 @@ When('I run {string}', async function(command: string) {
       }
     });
 
-    // Wait for PM2+ to start
+    // Wait for PM2 Pilot to start
     await new Promise(resolve => setTimeout(resolve, 2000));
   }
 

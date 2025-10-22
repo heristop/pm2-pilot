@@ -44,10 +44,13 @@ export class ShellInputHandler implements IShellInputHandler {
     await this.historyManager.loadHistory();
     const historyCommands = await this.historyManager.getReadlineHistory();
 
+    // Check if we're in demo mode
+    const isDemoMode = !!process.env.PM2X_DEMO_MODE;
+
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
-      prompt: this.getPrompt(),
+      prompt: isDemoMode ? '' : this.getPrompt(), // Use empty prompt in demo mode
       completer: this.completer.bind(this)
     }) as ReadlineWithHistory;
 
@@ -191,6 +194,6 @@ export class ShellInputHandler implements IShellInputHandler {
   }
 
   private getPrompt(): string {
-    return chalk.cyan('PM2+ ');
+    return chalk.cyan('> ');
   }
 }

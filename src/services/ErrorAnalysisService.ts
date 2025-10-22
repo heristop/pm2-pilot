@@ -262,7 +262,7 @@ ${errorSummary}
 TASK: Provide intelligent diagnosis with:
 1. Root cause analysis
 2. Specific actionable fixes
-3. Recommended PM2+ commands
+3. Recommended PM2 Pilot commands
 4. Prevention strategies
 
 Focus on the most critical issue first. Be specific and practical.
@@ -272,7 +272,7 @@ RESPONSE FORMAT:
   "summary": "Brief description of main issue",
   "rootCause": "Technical explanation of why this happened", 
   "actionableSuggestions": ["Specific step 1", "Specific step 2", "Specific step 3"],
-  "followUpCommands": ["pm2plus command 1", "pm2plus command 2"],
+  "followUpCommands": ["pm2pilot command 1", "pm2pilot command 2"],
   "severity": "critical|high|medium|low",
   "confidence": 0.95
 }`;

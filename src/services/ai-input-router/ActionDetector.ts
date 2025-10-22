@@ -112,7 +112,7 @@ export class ActionDetector implements IActionDetector {
       };
     }
 
-    const prompt = `You are a PM2+ action detector. Analyze the user input and determine if it contains a process management command in ANY language.
+    const prompt = `You are a PM2 Pilot action detector. Analyze the user input and determine if it contains a process management command in ANY language.
 
 INPUT: "${input}"
 

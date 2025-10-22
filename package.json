@@ -1,17 +1,17 @@
 {
-  "name": "pm2-plus",
-  "version": "0.2.1",
-  "description": "Interactive CLI for PM2 process management with AI assistance",
+  "name": "pm2-pilot",
+  "version": "0.3.0",
+  "description": "Your PM2 Autopilot - Interactive CLI for PM2 process management with AI assistance",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "pm2plus": "./dist/bin/pm2plus.js"
+    "pm2pilot": "./dist/bin/pm2pilot.js"
   },
   "scripts": {
     "version": "node scripts/generate-version.cjs",
-    "build": "pnpm run version && node -p \"'🚀 PM2+ v' + require('./package.json').version\" && pnpm exec tsdown",
-    "start": "pnpm run build && node dist/bin/pm2plus.js",
-    "dev": "tsx src/bin/pm2plus.ts",
+    "build": "pnpm run version && node -p \"'🚀 PM2 Pilot v' + require('./package.json').version\" && pnpm exec tsdown",
+    "start": "pnpm run build && node dist/bin/pm2pilot.js",
+    "dev": "tsx src/bin/pm2pilot.ts",
     "clean": "rm -rf dist",
     "test:cucumber": "node --import tsx ./node_modules/@cucumber/cucumber/bin/cucumber-js  --name conversation",
     "test": "vitest run",
@@ -102,7 +102,7 @@
       "import": "./dist/index.js"
     },
     "./bin": {
-      "default": "./dist/bin/pm2plus.js"
+      "default": "./dist/bin/pm2pilot.js"
     },
     "./package.json": "./package.json"
   }

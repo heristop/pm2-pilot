@@ -37,7 +37,7 @@ import { Shell } from './shell/Shell';
 
 import { CommandFactory } from './shell/CommandFactory';
 
-// DI Container setup for PM2+
+// DI Container setup for PM2 Pilot
 // This file configures the dependency injection container for the application
 
 export { container };

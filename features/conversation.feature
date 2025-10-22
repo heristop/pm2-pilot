@@ -1,6 +1,6 @@
-Feature: PM2+ Natural Language Conversation
+Feature: PM2 Hub Natural Language Conversation
   As a developer managing PM2 processes
-  I want to interact with PM2+ using natural language
+  I want to interact with PM2 Hub using natural language
   So that I can quickly understand and debug my applications
 
   Scenario: Complete conversation flow from discovery to debugging
@@ -39,7 +39,7 @@ Feature: PM2+ Natural Language Conversation
     # Scene 4: Error Analysis Request
     When I ask "I see errors, can you help me analyze and debug them?"
     Then the AI should provide debugging assistance
-    And the AI should suggest PM2+ natural language commands like:
+    And the AI should suggest PM2 Hub natural language commands like:
       | "check error patterns" |
       | "analyze performance issues" |
       | "restart api-server" |

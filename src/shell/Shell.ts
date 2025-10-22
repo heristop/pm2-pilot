@@ -119,6 +119,11 @@ export class Shell implements IShell {
   private async handleInput(input: string): Promise<void> {
     const trimmedInput = input.trim();
 
+    // In demo mode, ensure newline after command for better formatting
+    if (process.env.PM2X_DEMO_MODE && trimmedInput) {
+      console.log(); // Add newline after the command in demo mode
+    }
+
     if (!trimmedInput) {
       this.prompt();
       return;
@@ -193,7 +198,12 @@ export class Shell implements IShell {
 
   prompt(): void {
     if (this.rl && this.isRunning) {
-      this.rl.prompt();
+      // In demo mode, write prompt inline with command input
+      if (process.env.PM2X_DEMO_MODE) {
+        process.stdout.write(this.uiManager.getPrompt());
+      } else {
+        this.rl.prompt();
+      }
     }
   }
 

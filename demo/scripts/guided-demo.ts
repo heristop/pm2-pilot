@@ -6,7 +6,7 @@ import chalk from 'chalk';
 import * as readline from 'readline';
 
 const DEMO_DIR = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const PM2X_PATH = path.resolve(DEMO_DIR, '../dist/bin/pm2plus.js');
+const PM2X_PATH = path.resolve(DEMO_DIR, '../dist/bin/pm2pilot.js');
 const ECOSYSTEM_PATH = path.join(DEMO_DIR, 'ecosystem.demo.json');
 
 interface GuidanceStep {
@@ -39,7 +39,7 @@ const GUIDANCE_STEPS: GuidanceStep[] = [
       "my processes have errors, can you help me?"
     ],
     hints: [
-      "PM2+ can understand natural language queries",
+      "PM2 Pilot can understand natural language queries",
       "Ask about specific processes by name"
     ]
   },
@@ -65,7 +65,7 @@ const GUIDANCE_STEPS: GuidanceStep[] = [
       "how do I resolve these database errors?"
     ],
     hints: [
-      "PM2+ provides prioritized recommendations",
+      "PM2 Pilot provides prioritized recommendations",
       "Ask follow-up questions for more details"
     ]
   },
@@ -97,7 +97,7 @@ class GuidedDemo {
   }
 
   async startDemoProcesses(): Promise<void> {
-    console.log(chalk.blue('🚀 Starting PM2+ Guided Demo...'));
+    console.log(chalk.blue('🚀 Starting PM2 Pilot Guided Demo...'));
     console.log(chalk.gray('Setting up demo processes...\n'));
 
     // Stop any existing PM2 processes
@@ -134,14 +134,14 @@ class GuidedDemo {
   showWelcome(): void {
     console.clear();
     console.log(chalk.cyan('\n╔══════════════════════════════════════════════════════════════════════════════╗'));
-    console.log(chalk.cyan('║') + chalk.white.bold('                         🎯 PM2+ Guided Demo                                  ') + chalk.cyan('║'));
+    console.log(chalk.cyan('║') + chalk.white.bold('                         🎯 PM2 Pilot Guided Demo                                  ') + chalk.cyan('║'));
     console.log(chalk.cyan('║') + chalk.blue('                   Interactive tutorial with live guidance                     ') + chalk.cyan('║'));
     console.log(chalk.cyan('╚══════════════════════════════════════════════════════════════════════════════╝'));
     
     console.log(chalk.white('\n📋 What you\'ll learn:'));
     console.log(chalk.gray('   • How to check process status and health'));
     console.log(chalk.gray('   • AI-powered error analysis and diagnosis'));
-    console.log(chalk.gray('   • Natural language interaction with PM2+'));
+    console.log(chalk.gray('   • Natural language interaction with PM2 Pilot'));
     console.log(chalk.gray('   • Smart log analysis and recommendations'));
     
     console.log(chalk.cyan('\n🎮 How it works:'));
@@ -181,7 +181,7 @@ class GuidedDemo {
   }
 
   async launchPM2X(): Promise<void> {
-    console.log(chalk.blue('🚀 Launching PM2+ with guidance...\n'));
+    console.log(chalk.blue('🚀 Launching PM2 Pilot with guidance...\n'));
     
     this.pm2xProcess = spawn('node', [PM2X_PATH], {
       stdio: ['pipe', 'inherit', 'inherit'],
@@ -196,10 +196,10 @@ class GuidedDemo {
     // Set up input handling to intercept special commands
     this.setupInputHandling();
 
-    // Handle PM2+ exit
+    // Handle PM2 Pilot exit
     this.pm2xProcess.on('close', (code) => {
-      console.log(chalk.blue('\n🎉 Thanks for completing the PM2+ Guided Demo!'));
-      console.log(chalk.gray('You\'ve learned how to use PM2+ for process management and error analysis.'));
+      console.log(chalk.blue('\n🎉 Thanks for completing the PM2 Pilot Guided Demo!'));
+      console.log(chalk.gray('You\'ve learned how to use PM2 Pilot for process management and error analysis.'));
       process.exit(code || 0);
     });
 
@@ -229,7 +229,7 @@ class GuidedDemo {
         return;
       }
       
-      // Forward input to PM2+
+      // Forward input to PM2 Pilot
       if (this.pm2xProcess?.stdin) {
         this.pm2xProcess.stdin.write(input + '\n');
       }
@@ -242,7 +242,7 @@ class GuidedDemo {
       this.showGuidance();
     } else {
       console.log(chalk.green('\n🎉 You\'ve completed all guided steps!'));
-      console.log(chalk.gray('Continue exploring PM2+ or type "/exit" to finish the demo.'));
+      console.log(chalk.gray('Continue exploring PM2 Pilot or type "/exit" to finish the demo.'));
     }
   }
 

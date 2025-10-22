@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Test API Server - Generates realistic errors for PM2+ demo
+ * Test API Server - Generates realistic errors for PM2 Pilot demo
  */
 
 import http from 'http';

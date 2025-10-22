@@ -95,11 +95,11 @@ Then('the AI should provide debugging assistance', function(this: ConversationWo
   expect(hasDebugContent, 'Response should provide debugging assistance').to.equal(true);
 });
 
-Then('the AI should suggest PM2+ natural language commands like:', function(this: ConversationWorld, dataTable: DataTable) {
+Then('the AI should suggest PM2 Hub natural language commands like:', function(this: ConversationWorld, dataTable: DataTable) {
   const commands = dataTable.raw().flat();
   
   expect(this.shouldSuggestPM2XCommands(commands),
-    'Response should suggest PM2+ natural language commands').to.equal(true);
+    'Response should suggest PM2 Hub natural language commands').to.equal(true);
 });
 
 Then('the AI should NOT suggest raw PM2 commands like:', function(this: ConversationWorld, dataTable: DataTable) {

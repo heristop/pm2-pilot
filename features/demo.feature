@@ -1,10 +1,10 @@
-Feature: PM2+ Demo - Orchestrated Showcase
-  As a potential user of PM2+
+Feature: PM2 Hub Demo - Orchestrated Showcase
+  As a potential user of PM2 Hub
   I want to see a polished demonstration of its key features
   So that I can understand its value proposition and capabilities
 
   Background: Demo Environment Setup
-    Given I have a clean PM2+ demo environment
+    Given I have a clean PM2 Hub demo environment
     And the following test processes are running:
       | name           | status  | cpu | memory | errors |
       | api-server     | online  | 2.3 | 45MB   | yes    |
@@ -16,9 +16,9 @@ Feature: PM2+ Demo - Orchestrated Showcase
       | fps    | 10  |
 
   @demo @main-flow
-  Scenario: Complete PM2+ Demo Flow (50 seconds)
+  Scenario: Complete PM2 Hub Demo Flow (50 seconds)
     # Scene 1: Status Overview (0-10s)
-    When I run the PM2+ command "/status"
+    When I run the PM2 Hub command "/status"
     Then I should see the process status table within 2 seconds
     And the output should show all 3 processes with their status
     
@@ -29,7 +29,7 @@ Feature: PM2+ Demo - Orchestrated Showcase
     
     # Scene 2: Intelligent Log Analysis (10-25s)
     When I pause for 2 seconds
-    And I run the PM2+ command "/logs smart api-server"
+    And I run the PM2 Hub command "/logs smart api-server"
     Then I should see the intelligent log analysis output within 3 seconds
     And the analysis should include:
       | 🚨 Error Detection    |
@@ -41,7 +41,7 @@ Feature: PM2+ Demo - Orchestrated Showcase
     
     # Scene 3: Comprehensive Diagnosis (25-35s)
     When I pause for 3 seconds
-    And I run the PM2+ command "/doctor logs"
+    And I run the PM2 Hub command "/doctor logs"
     Then I should see the comprehensive diagnosis within 4 seconds
     And the report should show:
       | 📋 Log Analysis Report |
@@ -58,7 +58,7 @@ Feature: PM2+ Demo - Orchestrated Showcase
     
     # Scene 5: Clean Exit (45-50s)
     When I pause for 2 seconds
-    And I run the PM2+ command "/exit"
+    And I run the PM2 Hub command "/exit"
     Then the session should end gracefully within 5 seconds
     And display a professional closing message
 
@@ -117,6 +117,6 @@ Feature: PM2+ Demo - Orchestrated Showcase
   Scenario: Demo Performance Validation
     Given the demo recorder is measuring response times
     
-    When I run any PM2+ command during the demo
+    When I run any PM2 Hub command during the demo
     Then the command should complete within 3 seconds
     And the UI should remain responsive throughout

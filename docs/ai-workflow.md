@@ -2,17 +2,17 @@
 
 ## Vision: AI-Native Process Management
 
-PM2+ is evolving toward an AI-native experience where natural language becomes the primary interface for process management.
+PM2 Hub is evolving toward an AI-native experience where natural language becomes the primary interface for process management.
 
 ## Current vs Future Interface
 
 ### Current Interface
 
 ```bash
-PM2+ my app is slow
+> my app is slow
 ❌ Commands must start with /. Type /help for available commands.
 
-PM2+ /ai my app is slow
+> /ai my app is slow
 🤖 AI Assistant is thinking...
 [AI response without actions]
 ```
@@ -20,7 +20,7 @@ PM2+ /ai my app is slow
 ### Future AI-First Interface
 
 ```bash
-PM2+ my app is slow
+> my app is slow
 🤖 Analyzing your processes...
 I can see that "my-app" is using 85% CPU and 420MB memory. This could be causing slowness.
 
@@ -32,7 +32,7 @@ Suggestions:
 • Check memory usage: /metrics my-app
 • Would you like me to restart it now?
 
-PM2+ yes restart it
+> yes restart it
 🔄 Restarting my-app...
 ✅ my-app restarted successfully
 📊 New metrics: CPU 12%, Memory 89MB - much better!
@@ -43,7 +43,7 @@ PM2+ yes restart it
 ### Process Troubleshooting
 
 ```bash
-PM2+ why did my-app crash?
+> why did my-app crash?
 🤖 Analyzing crash logs... Found memory limit exceeded at 2:34 AM
 🔧 Suggesting: increase max_memory_restart to 800MB
 ```
@@ -51,7 +51,7 @@ PM2+ why did my-app crash?
 ### Batch Operations
 
 ```bash
-PM2+ restart all errored processes
+> restart all errored processes
 🤖 Found 3 errored processes: api-server, worker-1, notifications
 🔄 Restarting all... Done! All processes now online.
 ```
@@ -59,7 +59,7 @@ PM2+ restart all errored processes
 ### Performance Optimization
 
 ```bash
-PM2+ optimize my cluster setup
+> optimize my cluster setup
 🤖 Analysis: Your 4 instances are underutilized (avg 15% CPU)
 💡 Recommendation: Reduce to 2 instances to save 180MB memory
 🚀 Would you like me to scale down automatically?
@@ -68,7 +68,7 @@ PM2+ optimize my cluster setup
 ### Learning and Discovery
 
 ```bash
-PM2+ how do I monitor memory usage over time?
+> how do I monitor memory usage over time?
 🤖 I can help! Use `/history collect` to start tracking, then `/history` to view trends.
 📊 Starting collection now... You'll have data in 30 seconds.
 ```
@@ -131,15 +131,15 @@ Build solutions through natural dialogue rather than isolated commands.
 
 ```bash
 # Low friction for safe operations
-PM2+ check my app status
+> check my app status
 🤖 Here's the status for "my-app": online, CPU 15%, Memory 89MB
 
 # Smart confirmation for moderate operations
-PM2+ restart the slow app
+> restart the slow app
 🤖 I'll restart "api-server" (currently using 85% CPU). Continue? (y/N)
 
 # Explicit confirmation for dangerous operations
-PM2+ delete all processes
+> delete all processes
 🤖 ⚠️  This will PERMANENTLY DELETE all PM2 processes.
 Type "DELETE ALL" to confirm this destructive action:
 ```
@@ -156,17 +156,17 @@ Type "DELETE ALL" to confirm this destructive action:
 ### Smart References
 
 ```bash
-PM2+ check my api server
+> check my api server
 🤖 Showing status for "api-server"...
 
-PM2+ restart it
+> restart it
 🤖 Restarting "api-server"... # Remembers previous reference
 ```
 
 ### Context Hints
 
 ```bash
-PM2+ the logs look weird
+> the logs look weird
 🤖 Which process logs? I see you have 3 running:
 1. api-server (mentioned earlier)
 2. worker-queue
@@ -186,7 +186,7 @@ If AI services are unavailable:
 ### Smart Error Recovery
 
 ```bash
-PM2+ start my app
+> start my app
 🤖 "my-app" failed to start. Error: Port 3000 already in use.
 💡 I can help fix this:
 1. Kill the process using port 3000

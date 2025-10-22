@@ -51,15 +51,39 @@ export class ShellUIManager implements IShellUIManager {
 
   showBanner(isWide: boolean): void {
     if (isWide) {
-      console.log(chalk.cyan.bold('\n╔══════════════════════════════════════════════════════════════════════════════╗'));
-      console.log(chalk.cyan.bold('║') + chalk.white.bold(`                             🚀 PM2+ v${VERSION}                                   `) + chalk.cyan.bold('║'));
-      console.log(chalk.cyan.bold('║') + chalk.blue.bold('                    Interactive Process Manager with AI                       ') + chalk.cyan.bold('║'));
-      console.log(chalk.cyan.bold('╚══════════════════════════════════════════════════════════════════════════════╝'));
+      console.log(chalk.cyan('\n╔════════════════════════════════════════════════════════════════════════════════╗'));
+      console.log(chalk.cyan('║') + chalk.white.bold('                                                                                ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.blue.bold('     ██████╗ ███╗   ███╗██████╗     ██████╗ ██╗██╗      ██████╗ ████████╗       ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.blue.bold('     ██╔══██╗████╗ ████║╚════██╗    ██╔══██╗██║██║     ██╔═══██╗╚══██╔══╝       ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.blue.bold('     ██████╔╝██╔████╔██║ █████╔╝    ██████╔╝██║██║     ██║   ██║   ██║          ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.blue.bold('     ██╔═══╝ ██║╚██╔╝██║██╔═══╝     ██╔═══╝ ██║██║     ██║   ██║   ██║          ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.blue.bold('     ██║     ██║ ╚═╝ ██║███████╗    ██║     ██║███████╗╚██████╔╝   ██║          ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.blue.bold('     ╚═╝     ╚═╝     ╚═╝╚══════╝    ╚═╝     ╚═╝╚══════╝ ╚═════╝    ╚═╝          ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.white.bold('                                                                                ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.yellow.bold(`                          v${VERSION} - AI-Powered Process Manager                   `) + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.gray('                        Interactive CLI with intelligent assistance             ') + chalk.cyan('║'));
+      console.log(chalk.cyan('║') + chalk.white.bold('                                                                                ') + chalk.cyan('║'));
+      console.log(chalk.cyan('╚════════════════════════════════════════════════════════════════════════════════╝'));
     } else {
-      console.log(chalk.cyan.bold('\n┌─────────────────────────────────────────┐'));
-      console.log(chalk.cyan.bold('│') + chalk.white.bold(`           🚀 PM2+ v${VERSION}          `) + chalk.cyan.bold('│'));
-      console.log(chalk.cyan.bold('│') + chalk.blue.bold('     Interactive Process Manager    ') + chalk.cyan.bold('│'));
-      console.log(chalk.cyan.bold('└─────────────────────────────────────────┘'));
+      console.log(chalk.cyan('\n┌─────────────────────────────────────────┐'));
+      console.log(chalk.cyan('│') + chalk.white.bold('                                         ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.blue.bold('   ██████╗ ███╗   ███╗██████╗            ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.blue.bold('   ██╔══██╗████╗ ████║╚════██╗           ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.blue.bold('   ██████╔╝██╔████╔██║ █████╔╝           ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.blue.bold('   ██╔═══╝ ██║╚██╔╝██║██╔═══╝            ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.blue.bold('   ██║     ██║ ╚═╝ ██║███████╗           ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.blue.bold('   ╚═╝     ╚═╝     ╚═╝╚══════╝           ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.white.bold('                                         ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.yellow.bold('    ██████╗ ██╗██╗      ██████╗ ████████╗') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.yellow.bold('    ██╔══██╗██║██║     ██╔═══██╗╚══██╔══╝') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.yellow.bold('    ██████╔╝██║██║     ██║   ██║   ██║   ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.yellow.bold('    ██╔═══╝ ██║██║     ██║   ██║   ██║   ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.yellow.bold('    ██║     ██║███████╗╚██████╔╝   ██║   ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.yellow.bold('    ╚═╝     ╚═╝╚══════╝ ╚═════╝    ╚═╝   ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.white.bold('                                         ') + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.gray(`           v${VERSION} - AI Process Manager       `) + chalk.cyan('│'));
+      console.log(chalk.cyan('│') + chalk.white.bold('                                         ') + chalk.cyan('│'));
+      console.log(chalk.cyan('└─────────────────────────────────────────┘'));
     }
     console.log();
   }
@@ -284,7 +308,7 @@ export class ShellUIManager implements IShellUIManager {
   }
 
   getPrompt(): string {
-    return chalk.cyan('PM2+ ');
+    return chalk.cyan('> ');
   }
 
   renderOutput(output: unknown, processName?: string): void {
