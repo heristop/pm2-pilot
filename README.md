@@ -4,7 +4,7 @@ Your PM2 Autopilot - Modern interactive CLI for PM2 process management with AI a
 
 ## ✨ Demo
 
-![PM2 Pilot AI-Powered Demo](https://github.com/heristop/pm2-pilot/blob/113d664ac010e36b61a5500ee1bfed8e77d65869/docs/showcase-demo.gif)
+![PM2 Pilot AI-Powered Demo](https://github.com/heristop/pm2-pilot/blob/ce3b66cf0f78db8da9cccc6b5d73d7f724457055/docs/showcase-demo.gif)
 
 > **🎬 See PM2 Pilot in Action:** Watch how PM2 Pilot intelligently analyzes process errors, provides AI-powered diagnosis, and suggests actionable solutions—all through natural language interaction!
 
